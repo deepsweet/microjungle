@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<head>
+    <script src="https://github.com/deepsweet/zepto/raw/c2a3f2b052fae9ba89724f1b2c70c7b29bac3ffa/src/zepto.js"></script>
+    <script src="../src/microjungle.zepto.js"></script>
+</head>
+
+<body>
+    <script>
+        var data = {
+            'title': {
+                'url': '#',
+                'text': 'some pretty title'
+            },
+            'paragraphs': [
+                'some pretty paragraph',
+                'another one'
+            ],
+            'list': [
+                {'text': 'item1'},
+                {'text': 'item2', 'active': true},
+                {'text': 'item3', 'url': '#'}
+            ],
+            'footer': {
+                'input': {
+                    'type': 'text',
+                    'value': 'some pretty input'
+                },
+                'button': {
+                    'type': 'button',
+                    'value': 'push'
+                },
+                'copyright': 'all rights reserved, copyright 2011.'
+            }
+        },
+
+        template = [
+            ['div', {'class': 'header'},
+                ['h1',
+                    ['a', {'href': data.title.url}, data.title.text]
+                ],
+                'some pretty text line 1', ['br'],
+                'some pretty text line 2'
+            ],
+            ['div', {'class': 'content'},
+                data.paragraphs.map(function(text) {
+                    return ['p', text]
+                }),
+                ['ul', {'class': 'pretty-list'},
+                    data.list.map(function(item) {
+                        return ['li', item.active && {'class': 'active'},
+                            item.url ?
+                                ['a', {'href': item.url}, item.text] :
+                                item.text
+                        ]
+                    })
+                ]
+            ],
+            ['div', {'class': 'footer'},
+                ['form', {'action': '/'},
+                    ['input', data.footer.input],
+                    ['input', data.footer.button]
+                ],
+                data.footer.copyright
+            ]
+        ];
+
+        $(document).ready(function() {
+            $('body').microjungle(template);
+        });
+    </script>
+</head>

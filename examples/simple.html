@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<head>
+    <script src="../src/microjungle.js"></script>
+</head>
+
+<body>
+    <script>
+        var data = {
+            'title': {
+                'url': '#',
+                'text': 'some pretty title'
+            },
+            'paragraphs': [
+                'some pretty paragraph',
+                'another one'
+            ],
+            'list': [
+                {'text': 'item1'},
+                {'text': 'item2', 'active': true},
+                {'text': 'item3', 'url': '#'}
+            ],
+            'footer': {
+                'input': {
+                    'type': 'text',
+                    'value': 'some pretty input'
+                },
+                'button': {
+                    'type': 'button',
+                    'value': 'push'
+                },
+                'copyright': 'all rights reserved, copyright 2011.'
+            }
+        },
+
+        out = microjungle([
+            ['div', {'class': 'header'},
+                ['h1',
+                    ['a', {'href': data.title.url}, data.title.text]
+                ],
+                'some pretty text line 1', ['br'],
+                'some pretty text line 2'
+            ],
+            ['div', {'class': 'content'},
+                /* in some ugly browsers you still can't use Array.map(), so... */
+                /*(function() {
+                    var arr = [];
+                    for(var i = 0, l = data.paragraphs.length; i < l; i++) {
+                        arr.push(data.paragraphs[i]);
+                    }
+                    return arr;
+                }),*/
+                data.paragraphs.map(function(text) {
+                    return ['p', text]
+                }),
+                ['ul', {'class': 'pretty-list'},
+                    data.list.map(function(item) {
+                        return ['li', item.active && {'class': 'active'},
+                            item.url ?
+                                ['a', {'href': item.url}, item.text] :
+                                item.text
+                        ]
+                    })
+                ]
+            ],
+            ['div', {'class': 'footer'},
+                ['form', {'action': '/'},
+                    ['input', data.footer.input],
+                    ['input', data.footer.button]
+                ],
+                data.footer.copyright
+            ]
+        ]);
+
+        document.body.appendChild(out);
+    </script>
+</body>
