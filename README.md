@@ -1,10 +1,10 @@
-## microjungle.js - HTML via JSON.
+# microjungle.js - HTML via JSON.
 
 - tiny: only 0.3k minified and gzipped, so it can be easily used as an inline script
 - universal: you are able to make JSON in almost any programming language
 - flexible: standalone and Zepto.js client-side versions
 
-### static
+## static
 
     var out = microjungle([
         ['div', {'class': 'header'},
@@ -36,7 +36,7 @@
 
     document.body.appendChild(out);
 
-### templating
+## templating
 
     var data = {
         'title': {
@@ -98,7 +98,7 @@
 
     document.body.appendChild(out);
 
-### compatibility
+## compatibility
 successfully tested in:
 
 - Chrome
@@ -107,6 +107,6 @@ successfully tested in:
 - Opera 9.27+
 - IE 6+
 
-### coming soon
+## coming soon
 - Node.js module
 - JS to HTML template engines speed comparing benchmark
