@@ -1,6 +1,6 @@
-# microjungle.js - HTML via JSON.
+# microjungle.js - HTML via JSON
 
-- tiny: only 0.3k minified and gzipped, so it can be easily used as an inline script
+- tiny: only 0.3k minified and gzipped, so it can be easily used as inline script
 - universal: you are able to make JSON in almost any programming language
 - flexible: standalone and Zepto.js client-side versions
 

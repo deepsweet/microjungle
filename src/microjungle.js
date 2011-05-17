@@ -6,7 +6,7 @@ var microjungle = function(template) {
         return toString.call(t) === '[object Object]';
     };
 
-	// they just do their job.
+    // they just doing their job.
     function monkeys(what, who) {
         for (var i = 0, l = what.length; i < l; i++) {
             var j = what[i];
