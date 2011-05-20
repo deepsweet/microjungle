@@ -6,7 +6,8 @@
 
 ## static
 
-    var out = microjungle([
+```javascript
+    var template = [
         ['div', {'class': 'header'},
             ['h1',
                 ['a', {'href': '#'}, 'some pretty title']
@@ -32,12 +33,16 @@
             ],
             'all rights reserved, copyright 2011.'
         ]
-    ]);
+    ];
 
-    document.body.appendChild(out);
+    document.body.appendChild(
+        microjungle(template);
+    );
+```
 
 ## templating
 
+```javascript
     var data = {
         'title': {
             'url': '#',
@@ -65,7 +70,7 @@
         }
     },
 
-    out = microjungle([
+    template = [
         ['div', {'class': 'header'},
             ['h1',
                 ['a', {'href': data.title.url}, data.title.text]
@@ -94,9 +99,12 @@
             ],
             data.footer.copyright
         ]
-    ]);
+    ];
 
-    document.body.appendChild(out);
+    document.body.appendChild(
+        microjungle(template);
+    );
+```
 
 ## compatibility
 successfully tested in:
