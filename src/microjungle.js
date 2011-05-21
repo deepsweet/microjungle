@@ -28,7 +28,7 @@ var microjungle = function(template) {
                         who.appendChild(monkeys(j, el));
                     } else {
                         monkeys(j, who);
-                    }                        
+                    }
                 }
             }
         }
