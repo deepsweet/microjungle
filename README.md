@@ -113,7 +113,7 @@ successfully tested in:
 
 - iOS 3.2.1+
 - Android 1.6+
-- Chrome
+- Google Chrome / Chromium *
 - FF 3.0+
 - Safari 4+
 - Opera 9.27+
