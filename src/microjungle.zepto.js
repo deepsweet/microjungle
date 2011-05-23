@@ -10,11 +10,14 @@
 
         // they just doing their job.
         function monkeys(what, who) {
-            for (var i = 0, l = what.length; i < l; i++) {
+            var l = what.length;
+
+            for (var i = 0; i < l; i++) {
                 var j = what[i];
+
                 if (j) {
                     if (typeof j == 'string') {
-                        who.append($(d.createTextNode(j)));
+                        who.html(who.html() + j);
                     } else {
                         if (typeof j[0] == 'string') {
                             var el = $('<' + j.shift() + '>'),
@@ -30,7 +33,7 @@
                             who.append(monkeys(j, el));
                         } else {
                             monkeys(j, who);
-                        }                        
+                        }
                     }
                 }
             }
