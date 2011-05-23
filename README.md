@@ -3,6 +3,8 @@
 - tiny: only 0.3k minified and gzipped, so it can be easily used as inline script
 - universal: you are able to make JSON in almost any programming language
 - flexible: standalone and Zepto.js client-side versions
+- true: returns a DOM DocumentFragment
+- fast: some benchmarks will coming soon
 
 ## static
 
