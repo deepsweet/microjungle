@@ -109,6 +109,8 @@
 ## compatibility
 successfully tested in:
 
+- iOS 3.2.1+
+- Android 1.6+
 - Chrome
 - FF 3.0+
 - Safari 4+
