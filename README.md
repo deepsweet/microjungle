@@ -116,7 +116,3 @@ successfully tested in:
 - Safari 4+
 - Opera 9.27+
 - IE 6+
-
-## coming soon
-- Node.js module
-- JS to HTML template engines speed comparing benchmark
