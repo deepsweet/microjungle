@@ -8,11 +8,15 @@ var microjungle = function(template) {
 
     // they just doing their job.
     function monkeys(what, who) {
-        for (var i = 0, l = what.length; i < l; i++) {
+        var l = what.length;
+
+        for (var i = 0; i < l; i++) {
             var j = what[i];
+
             if (j) {
                 if (typeof j == 'string') {
-                    who.appendChild(d.createTextNode(j));
+                    //who.appendChild(d.createTextNode(j));
+                    who.innerHTML += j;
                 } else {
                     if (typeof j[0] == 'string') {
                         var el = d.createElement(j.shift()),
