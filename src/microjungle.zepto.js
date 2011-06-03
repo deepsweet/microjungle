@@ -31,6 +31,8 @@
                             }
 
                             who.append(monkeys(j, el));
+                        } else if (j.nodeType === 11) {
+                            who.append(j);
                         } else {
                             monkeys(j, who);
                         }

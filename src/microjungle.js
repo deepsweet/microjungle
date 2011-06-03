@@ -30,8 +30,7 @@ var microjungle = function(template) {
                         }
 
                         who.appendChild(monkeys(j, el));
-                        
-                    } else if (j instanceof DocumentFragment){
+                    } else if (j.nodeType === 11) {
                         who.appendChild(j);
                     } else {
                         monkeys(j, who);
