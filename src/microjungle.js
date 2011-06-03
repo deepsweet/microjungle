@@ -30,6 +30,9 @@ var microjungle = function(template) {
                         }
 
                         who.appendChild(monkeys(j, el));
+                        
+                    } else if (j instanceof DocumentFragment){
+                        who.appendChild(j);
                     } else {
                         monkeys(j, who);
                     }
