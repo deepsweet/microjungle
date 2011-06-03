@@ -1,12 +1,7 @@
 (function($) {
     $.fn.microjungle = function(template) {
 
-        var d = document,
-            toString = {}.toString;
-
-        function isObject(t) {
-            return toString.call(t) === '[object Object]';
-        };
+        var d = document;
 
         // they just doing their job.
         function monkeys(what, who) {
@@ -21,7 +16,7 @@
                     } else {
                         if (typeof j[0] == 'string') {
                             var el = $('<' + j.shift() + '>'),
-                                attrs = isObject(j[0]) && j.shift(),
+                                attrs = toString.call(j[0]) === '[object Object]' && j.shift(),
                                 k;
 
                             if (attrs) {
