@@ -15,7 +15,7 @@ var microjungle = function(template) {
                 } else {
                     if (typeof j[0] == 'string') {
                         var el = d.createElement(j.shift()),
-                            attrs = toString.call(j[0]) === '[object Object]' && j.shift(),
+                            attrs = {}.toString.call(j[0]) === '[object Object]' && j.shift(),
                             k;
 
                         if (attrs) {

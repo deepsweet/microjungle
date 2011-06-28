@@ -16,7 +16,7 @@
                     } else {
                         if (typeof j[0] == 'string') {
                             var el = $('<' + j.shift() + '>'),
-                                attrs = toString.call(j[0]) === '[object Object]' && j.shift(),
+                                attrs = {}.toString.call(j[0]) === '[object Object]' && j.shift(),
                                 k;
 
                             if (attrs) {
