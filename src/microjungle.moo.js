@@ -36,7 +36,9 @@
   Element.implement({
     
     microjungle: function(template) {
-      return this.appendChild(microjungle(template));
+      this.appendChild(microjungle(template));
+	  
+	  return  this;
     }
   })
   
