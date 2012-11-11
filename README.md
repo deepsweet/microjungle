@@ -4,7 +4,6 @@
 - universal: you are able to make JSON in almost any programming language
 - flexible: standalone and Zepto.js/MooTools client-side versions
 - true: returns a DOM DocumentFragment
-- fast: some benchmarks will coming soon
 
 As it turned out, the idea is very similar to [JsonML](http://www.jsonml.org/) and [JUP](https://github.com/hij1nx/JUP), but I hope it still makes sense in another implementation like microjungle :)
 
