@@ -1,9 +1,0 @@
-bodyAppend([
-    ['div', {'class': 'footer'},
-        ['form', {'action': '/'},
-            ['input', {'type': 'text', 'value': 'some pretty input'}],
-            ['input', {'type': 'button', 'value': 'push'}]
-        ],
-        'all rights reserved, copyright 2011.'
-    ]
-])

@@ -1,41 +1,74 @@
-var microjungle = function(template) {
-    var d = document;
+;(function(factory, win) {
+
+    /*global jQuery:true,define:true,require: true*/
+
+    'use strict';
+
+    // amd
+    if(typeof define === 'function' && define.amd) {
+        define(factory);
+    // jQuery
+    } else if('jQuery' in win) {
+        factory(win.jQuery);
+    // window
+    } else {
+        factory(win);
+    }
+
+}(function(global) {
+
+    'use strict';
 
     // they just doing their job.
-    function monkeys(what, who) {
-        var l = what.length;
+    function monkeys(template, target) {
+        var i = 0,
+            len = template.length,
+            item;
 
-        for (var i = 0; i < l; i++) {
-            var j = what[i];
+        for(; i < len; i++) {
+            item = template[i];
 
-            if (j) {
-                if (typeof j == 'string') {
-                    //who.appendChild(d.createTextNode(j));
-                    who.innerHTML += j;
-                } else {
-                    if (typeof j[0] == 'string') {
-                        var el = d.createElement(j.shift()),
-                            attrs = {}.toString.call(j[0]) === '[object Object]' && j.shift(),
-                            k;
-
-                        if (attrs) {
-                            for(k in attrs) {
-                                attrs[k] && el.setAttribute(k, attrs[k]);
-                            }
-                        }
-
-                        who.appendChild(monkeys(j, el));
-                    } else if (j.nodeType === 11) {
-                        who.appendChild(j);
-                    } else {
-                        monkeys(j, who);
-                    }
-                }
+            // text node
+            if(typeof item === 'string' || typeof item === 'number') {
+                //target.appendChild(document.createTextNode(item));
+                target.innerHTML += item;
+                continue;
             }
+
+            // falsy
+            if(!item) {
+                continue;
+            }
+
+            // elem
+            if(typeof item[0] === 'string') {
+                var elem = document.createElement(item.shift()),
+                    attrs = {}.toString.call(item[0]) === '[object Object]' && item.shift(),
+                    k;
+
+                for(k in attrs) {
+                    attrs[k] && elem.setAttribute(k, attrs[k]);
+                }
+
+                target.appendChild(monkeys(item, elem));
+
+                continue;
+            }
+
+            // node
+            if(item.nodeType) {
+                target.appendChild(item);
+                continue;
+            }
+
+            monkeys(item, target);
         }
 
-        return who;
+        return target;
     };
 
-    return monkeys(template, d.createDocumentFragment());
-};
+    return global.microjungle = function(template) {
+        return monkeys(template, document.createDocumentFragment());
+    };
+
+}, window));

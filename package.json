@@ -1,0 +1,27 @@
+{
+  "name": "microjungle",
+  "version": "0.2.0",
+  "description": "HTML via JSON templating",
+  "keywords": [ "template" ],
+  "homepage": "https://github.com/deepsweet/microjungle",
+  "author": "Kir Belevich <kir@soulshine.in> (https://github.com/deepsweet)",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:deepsweet/microjungle.git"
+  },
+  "devDependencies": {
+    "mocha-phantomjs" :"",
+    "phantomjs": "",
+    "must": "",
+    "eslint": "",
+    "jscs": "",
+    "uglify-js": ""
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "licenses": [{
+      "type": "MIT",
+      "url": "https://github.com/deepsweet/microjungle/blob/master/LICENSE"
+  }]
+}
