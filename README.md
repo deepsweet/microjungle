@@ -1,4 +1,6 @@
-## microjungle - HTML via JSON templating [![Build Status](https://secure.travis-ci.org/deepsweet/microjungle.png)](https://travis-ci.org/deepsweet/microjungle)
+## microjungle [![Build Status](https://secure.travis-ci.org/deepsweet/microjungle.png)](https://travis-ci.org/deepsweet/microjungle)
+
+### client-side HTML via JSON templating
 
 * tiny: <0.4 KiB minified and gzipped, so it can be used as an inline script
 * true: returns a DOM DocumentFragment
@@ -47,7 +49,7 @@ microjungle([
                 document.createElement('i')
             ),
             false,
-            true,
+            undefined,
             0,
             []
         ]
