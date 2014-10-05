@@ -1,4 +1,5 @@
 ## microjungle [![Build Status](https://secure.travis-ci.org/deepsweet/microjungle.png)](https://travis-ci.org/deepsweet/microjungle)
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/deepsweet/microjungle?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ### client-side HTML via JSON templating
 
