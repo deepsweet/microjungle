@@ -1,0 +1,7 @@
+dist/dom.*
+src/
+test/
+coverage/
+.*
+*.log
+bower.json

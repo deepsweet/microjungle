@@ -1,0 +1,30 @@
+{
+  "name": "microjungle",
+  "version": "1.0.0",
+  "description": "HTML templating with JS. The right way.",
+  "keywords": [ "template", "html" ],
+  "homepage": "https://github.com/deepsweet/microjungle",
+  "authors": [ {
+    "name": "Kir Belevich",
+    "email": "kir@soulshine.in",
+    "homepage": "https://github.com/deepsweet"
+  } ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/deepsweet/microjungle.git"
+  },
+  "main": "dist/dom.js",
+  "moduleType": [ "amd", "node", "globals" ],
+  "ignore": [
+    "node_modules/",
+    "dist/plain.js",
+    "test/",
+    "src/",
+    "tmp/",
+    "coverage/",
+    ".*",
+    "*.log"
+    "package.json"
+  ],
+  "license": "WTFPL"
+}
