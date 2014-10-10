@@ -198,7 +198,7 @@ $ npm run build:plain
 
 ## Notes
 
-As it turned out later after writing the very first version in 2011, the idea is indentical to [JsonML](http://www.jsonml.org/), but I hope it still makes sense in another implementation like microjungle :)
+As it turned out later after writing the [very first version](https://github.com/deepsweet/microjungle/tree/old) in 2011, the idea is indentical to [JsonML](http://www.jsonml.org/), but I hope it still makes sense in another implementation like microjungle :)
 
 ## License
 
