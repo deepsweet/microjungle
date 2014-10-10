@@ -60,44 +60,44 @@ describe('templates', function() {
             m([ function() {} ]).must.be.equal('');
         });
 
-        // it('valid attrs', function() {
-        //     m([
-        //         ['div', {
-        //             'data-string': 'a',
-        //             'data-num': 1,
-        //             'data-neg-num': -1,
-        //             'data-zero': 0,
-        //             'data-neg-zero': -0
-        //         }]
-        //     ]).must.be.equal(
-        //         '<div ' +
-        //         'data-string="a" ' +
-        //         'data-num="1" ' +
-        //         'data-neg-num="-1" ' +
-        //         'data-zero="0" ' +
-        //         'data-neg-zero="0"' +
-        //         '></div>'
-        //     );
-        // });
+        it('valid attrs', function() {
+            m([
+                ['div', {
+                    'data-string': 'a',
+                    'data-num': 1,
+                    'data-neg-num': -1,
+                    'data-zero': 0,
+                    'data-neg-zero': -0
+                }]
+            ]).must.be.equal(
+                '<div ' +
+                'data-string="a" ' +
+                'data-num="1" ' +
+                'data-neg-num="-1" ' +
+                'data-zero="0" ' +
+                'data-neg-zero="0"' +
+                '></div>'
+            );
+        });
 
-        // it('invalid attrs', function() {
-        //     m([
-        //         ['div', {
-        //             'data-array': [],
-        //             'data-object': {},
-        //             'data-true': true,
-        //             'data-false': false,
-        //             'data-null': null,
-        //             'data-undefined': undefined,
-        //             'data-nan': 0/0,
-        //             'data-infinite': 1/0,
-        //             'data-neg-infinite': -1/0,
-        //             'data-function': function() {}
-        //         }]
-        //     ]).must.be.equal(
-        //         '<div></div>'
-        //     );
-        // });
+        it('invalid attrs', function() {
+            m([
+                ['div', {
+                    'data-array': [],
+                    'data-object': {},
+                    'data-true': true,
+                    'data-false': false,
+                    'data-null': null,
+                    'data-undefined': undefined,
+                    'data-nan': 0/0,
+                    'data-infinite': 1/0,
+                    'data-neg-infinite': -1/0,
+                    'data-function': function() {}
+                }]
+            ]).must.be.equal(
+                '<div></div>'
+            );
+        });
 
     });
 
