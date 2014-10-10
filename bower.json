@@ -23,7 +23,7 @@
     "tmp/",
     "coverage/",
     ".*",
-    "*.log"
+    "*.log",
     "package.json"
   ],
   "license": "WTFPL"
