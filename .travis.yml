@@ -6,3 +6,5 @@ node_js:
 branches:
   only:
     - master
+
+script: npm run travis

@@ -1,5 +1,6 @@
 node_modules/
 tmp/
+coverage/
 *.sublime-*
 *.log
 .DS_Store

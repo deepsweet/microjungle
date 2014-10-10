@@ -1,4 +1,4 @@
-;(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var Assertions = require("./lib/assertions")
 var AssertionError = require("./lib/assertion_error")
 module.exports = Must
@@ -130,7 +130,8 @@ function AssertionError(msg, opts) {
    *
    * @property stack
    */
-  Error.captureStackTrace(this, opts && opts.caller || arguments.callee.caller)
+  var caller = opts && opts.caller || arguments.callee.caller
+  if (Error.captureStackTrace) Error.captureStackTrace(this, caller)
 }
 
 AssertionError.prototype = Object.create(Error.prototype, {
@@ -712,6 +713,38 @@ exports.include = function(expected) {
 exports.contain = exports.include
 
 /**
+ * Assert that an array is a permutation of the given array.
+ *
+ * An array is a permutation of another if they both have the same elements
+ * (including the same number of duplicates) regardless of their order.
+ * Elements are checked with strict equals (`===`).
+ *
+ * @example
+ * [1, 1, 2, 3].must.be.a.permutationOf([3, 2, 1, 1])
+ * [7, 8, 8, 9].must.not.be.a.permutationOf([9, 8, 7])
+ *
+ * @method permutationOf
+ * @param expected
+ */
+exports.permutationOf = function(expected) {
+  var result = isPermutationOf(this.actual, expected)
+  insist.call(this, result, "be a permutation of", expected, {diffable: true})
+}
+
+function isPermutationOf(actual, expected) {
+  if (!Array.isArray(actual) || !Array.isArray(expected)) return false
+  if (actual.length !== expected.length) return false
+
+  actual = actual.slice().sort()
+  expected = expected.slice().sort()
+  for (var i = 0; i < actual.length; i++) {
+    if (actual[i] !== expected[i]) return false
+  }
+
+  return true
+}
+
+/**
  * Assert object matches the given regular expression.
  *
  * If you pass in a non regular expression object, it'll be converted to one
@@ -740,6 +773,10 @@ exports.match = function(expected) {
  * - A **function** (a.k.a. constructor) is used to check if the error
  *   is an `instanceof` that constructor.
  * - All other cases of `expected` are left unspecified for now.
+ *
+ * Because of how JavaScript works, the function will be called in `null`
+ * context (`this`). If you want to test an instance method, bind it:
+ * `obj.method.bind(obj).must.throw()`.
  *
  * @example
  * function omg() { throw new Error("Everything's amazing and nobody's happy") }
@@ -1196,5 +1233,4 @@ function kindof(obj) {
   }
 }
 
-},{}]},{},[1])
-;
+},{}]},{},[1]);

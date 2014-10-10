@@ -1,27 +1,55 @@
 {
   "name": "microjungle",
-  "version": "0.2.0",
-  "description": "HTML via JSON templating",
-  "keywords": [ "template" ],
+  "version": "1.0.0",
+  "description": "HTML templating with JS. The right way.",
+  "keywords": [ "template", "html" ],
   "homepage": "https://github.com/deepsweet/microjungle",
-  "author": "Kir Belevich <kir@soulshine.in> (https://github.com/deepsweet)",
+  "author": {
+    "name": "Kir Belevich",
+    "email": "kir@soulshine.in",
+    "url": "https://github.com/deepsweet"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:deepsweet/microjungle.git"
   },
+  "main": "dist/plain.js",
   "devDependencies": {
-    "mocha-phantomjs" :"",
-    "phantomjs": "",
-    "must": "",
-    "eslint": "",
-    "jscs": "",
-    "uglify-js": ""
+    "eslint": "0.8.x",
+    "jscs": "1.6.x",
+    "mocha": "1.21.x",
+    "mocha-phantomjs": "3.5.x",
+    "must": "0.12.x",
+    "istanbul": "0.3.x",
+    "coveralls": "2.11.x",
+    "uglify-js": "2.4.x"
+  },
+  "testling": {
+    "harness": "mocha-bdd",
+    "html": "test/dom/test.html",
+    "browsers": [
+      "ie/6..latest",
+      "chrome/4..latest",
+      "ff/3..latest",
+      "safari/4..latest",
+      "opera/10..latest",
+      "iphone/6..latest",
+      "android-browser/4..latest"
+    ]
   },
   "scripts": {
-    "test": "make test"
+    "lint": "eslint src/dom.js src/plain.js && jscs src/dom.js src/plain.js",
+    "unit": "npm run unit:plain && npm run unit:dom",
+    "unit:dom": "mocha-phantomjs test/dom/test.html",
+    "unit:plain": "mocha -r must test/common/ test/plain/",
+    "minify": "uglifyjs dist/dom.js -c -m --source-map dist/dom.min.js.map -o dist/dom.min.js",
+    "build:dom": "cat src/_header.js src/dom.js src/_footer.js > dist/dom.js",
+    "build:plain": "cat src/_header.js src/plain.js src/_footer.js > dist/plain.js",
+    "build": "rm dist/* && npm run build:dom && npm run build:plain && npm run minify",
+    "coverage": "rm -rf coverage/ && istanbul cover _mocha -- -r must test/common/ test/plain/",
+    "coveralls": "npm run coverage && cat coverage/lcov.info | coveralls",
+    "test": "npm run lint && npm run build && npm run unit",
+    "travis": "npm run test && npm run coveralls"
   },
-  "licenses": [{
-      "type": "MIT",
-      "url": "https://github.com/deepsweet/microjungle/blob/master/LICENSE"
-  }]
+  "license": "WTFPL"
 }
