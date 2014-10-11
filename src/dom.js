@@ -6,7 +6,7 @@ var monkeys = function(template, target) {
 
     target = target || document.createDocumentFragment();
 
-    if (Array.isArray(template)) {
+    if (Object.prototype.toString.call(template) === '[object Array]') {
         for (var i = 0; i < template.length; i++) {
             item = template[i];
 
