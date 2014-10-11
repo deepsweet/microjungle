@@ -24,19 +24,6 @@
     "coveralls": "2.11.x",
     "uglify-js": "2.4.x"
   },
-  "testling": {
-    "harness": "mocha-bdd",
-    "html": "test/dom/test.html",
-    "browsers": [
-      "ie/6..latest",
-      "chrome/4..latest",
-      "ff/3..latest",
-      "safari/4..latest",
-      "opera/10..latest",
-      "iphone/6..latest",
-      "android-browser/4..latest"
-    ]
-  },
   "scripts": {
     "lint": "eslint src/dom.js src/plain.js && jscs src/dom.js src/plain.js",
     "unit": "npm run unit:plain && npm run unit:dom",
