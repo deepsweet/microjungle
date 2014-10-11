@@ -1,10 +1,10 @@
 # microjungle
 
-[![travis](http://img.shields.io/travis/deepsweet/microjungle.svg?style=flat-square)](https://travis-ci.org/deepsweet/microjungle)
-[![coverage](http://img.shields.io/coveralls/deepsweet/microjungle/master.svg?style=flat-square)](https://coveralls.io/r/deepsweet/microjungle)
 [![npm](http://img.shields.io/npm/v/microjungle.svg?style=flat-square)](https://www.npmjs.org/package/microjungle)
 [![bower](http://img.shields.io/bower/v/microjungle.svg?style=flat-square)](http://bower.io/)
-[![dev deps](http://img.shields.io/david/dev/deepsweet/microjungle.svg?style=flat-square)](https://david-dm.org/deepsweet/microjungle#info=devDependencies)
+[![travis](http://img.shields.io/travis/deepsweet/microjungle.svg?style=flat-square)](https://travis-ci.org/deepsweet/microjungle)
+[![coverage](http://img.shields.io/coveralls/deepsweet/microjungle/master.svg?style=flat-square)](https://coveralls.io/r/deepsweet/microjungle)
+[![climate](http://img.shields.io/codeclimate/github/deepsweet/microjungle.svg?style=flat-square)](https://codeclimate.com/github/deepsweet/microjungle/code)
 [![gratipay](http://img.shields.io/gratipay/deepsweet.svg?style=flat-square)](https://gratipay.com/deepsweet/)
 
 HTML templating with JS. The Right Way.
